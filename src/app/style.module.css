@@ -1,0 +1,99 @@
+.one {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+}
+
+.head-line {
+    font-family: var(--bebas), sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 100px;
+}
+
+@media (max-width: 767px) {
+    .head-line {
+        font-size: 30px;
+    }
+}
+
+.buttons {
+    display: flex;
+    column-gap: 70px;
+    position: absolute;
+    bottom: 20%;
+}
+
+@media (max-width: 767px) {
+    .buttons {
+        column-gap: 30px;
+        bottom: 10%;
+    }
+}
+
+.button {
+    background: linear-gradient(to right, #b88efc, #6877f4);
+    padding: 20px 40px;
+    border-radius: var(--small-radius);
+    font-family: var(--comfortaa), sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 767px) {
+    .button {
+        padding: 15px 35px;
+        border-radius: var(--small-radius);
+        font-family: var(--comfortaa), sans-serif;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
+
+.button:active {
+    transform: translateY(2px);
+}
+
+/* .right-top {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+
+.left-bottom {
+    position: absolute;
+    bottom: 20%;
+    left: 40px;
+}
+
+.left-top {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.right-top,
+.left-bottom,
+.left-top {
+    background-color: white;
+    border-radius: 10px 20px 10px 20px;
+    padding: 60px 100px;
+}
+
+.right-top::after {
+    content: '';
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: -5px;
+    left: -5px;
+    border-radius: 25px 4px;
+} */

@@ -1,24 +1,17 @@
-import { db } from "@/db/drizzle"
-import { notesTable } from "@/db/schema/notes";
-import { usersTable } from "@/db/schema/users"
-import { eq } from "drizzle-orm";
+import Link from 'next/link'
+import styles from './style.module.css'
 
-export default async function Page() {
-  const user = await db.select().from(usersTable).where(eq(usersTable.email, 'abody@gmail.com'));
-  const notes = await db.select().from(notesTable).where(eq(notesTable.userId, user[0].id));
+export default function Page() {
   return (
-    <>
-      <h1>USERS</h1>
-      <h3>{user[0].name}</h3>
-      <h4>Notes for him</h4>
-      <ul>
-        {notes.map(note =>
-          <li key={note.id}>
-            <h5>Title: {note.title}</h5>
-            <p>content: {note.content}</p>
-          </li>
-        )}
-      </ul>
-    </>
+    <div className={styles.one}>
+      <h1 className={styles['head-line']}>make your life easier</h1>
+      {/* <p className={styles['right-top']}>create your notes</p>
+      <p className={styles['left-bottom']}>do your daily tasks</p>
+      <p className={styles['left-top']}>organize your life</p> */}
+      <div className={styles['buttons']}>
+        <Link href={'/login'} className={styles.button}>login</Link>
+        <Link href={'/signup'} className={styles.button}>signup</Link>
+      </div>
+    </div>
   )
 }

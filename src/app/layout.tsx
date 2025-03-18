@@ -1,11 +1,16 @@
-export default function LayoutRoot({ children }: {
+import './globals.css'
+
+export default function LayoutRoot({
+  children
+}: {
   children: React.ReactNode
 }) {
   return (
     <html lang="en">
       <body>
-        <h1>hello from root layout</h1>
-        {children}
+        <div className="container">
+          {children}
+        </div>
       </body>
     </html>
   )
