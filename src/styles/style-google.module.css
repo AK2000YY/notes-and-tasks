@@ -38,6 +38,16 @@
     border-radius: var(--small-radius);
     font-family: var(--comfortaa);
     font-weight: bold;
+    cursor: pointer;
+}
+
+.google button:active {
+    transform: translateY(2px);
+}
+
+.google button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 .google button img {

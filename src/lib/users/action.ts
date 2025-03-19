@@ -1,10 +1,11 @@
 'use server'
 
 import { db } from "@/db/drizzle";
-import { usersTable } from "@/db/schema/users";
+import { users } from "@/db/schema/users";
 import { and, eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { z } from "zod";
+import { signIn } from "@/auth"
 
 const UserSchema = z.object({
     email: z
@@ -27,6 +28,12 @@ const UserSchema = z.object({
         .max(15, { message: 'password must be at most 15 character' })
 })
 
+export async function signInWithGoogle(prevState: any, formData: FormData) {
+    await signIn("google", {
+        redirectTo: '/dashboard'
+    })
+}
+
 export async function createUser(formData: FormData) {
     const user = {
         firstName: formData.get('first-name'),
@@ -43,12 +50,11 @@ export async function createUser(formData: FormData) {
     }
 
     await db
-        .insert(usersTable)
+        .insert(users)
         .values({
             email: user.email + "",
             password: user.password + "",
-            firstName: user.firstName + "",
-            lastName: user.lastName + ""
+            name: user.lastName + ""
         });
 
     redirect('/dashboard')
@@ -71,10 +77,10 @@ export async function getUser(prevState: any, formData: FormData) {
 
     const userDb = await db
         .select()
-        .from(usersTable)
+        .from(users)
         .where(and(
-            eq(usersTable.email, "" + user.email),
-            eq(usersTable.password, "" + user.password)
+            eq(users.email, "" + user.email),
+            eq(users.password, "" + user.password)
         ));
 
     if (userDb.length === 0) {
