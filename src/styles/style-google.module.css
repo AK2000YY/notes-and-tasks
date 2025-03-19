@@ -1,0 +1,57 @@
+.google {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.google div {
+    padding: 20px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.google div p {
+    color: gray;
+    padding: 0 10px;
+    width: fit-content;
+}
+
+.google div::before,
+.google div::after {
+    content: '';
+    flex: 1;
+    background-color: gray;
+    height: 1px;
+}
+
+.google button {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    padding: 6px;
+    color: #ddd;
+    border-radius: var(--small-radius);
+    font-family: var(--comfortaa);
+    font-weight: bold;
+}
+
+.google button img {
+    width: 46px;
+    height: 46px;
+}
+
+@media (max-width: 1022px) {
+    .google button {
+        padding: 4px 0px;
+    }
+
+    .google button img {
+        width: 30px;
+        height: 30px;
+    }
+}

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import styles from '../../styles/style-auth-page.module.css'
+import { GoogleLogin } from '@/components/google-login'
 
 export default function Page() {
     return (
@@ -7,7 +8,7 @@ export default function Page() {
             <div className={styles['first-half']}></div>
             <div className={styles['second-half']}>
                 <h1>Create an account</h1>
-                <div>
+                <div className={styles['discription']}>
                     <p>you have an account?</p>
                     <Link href='/login'>login</Link>
                 </div>
@@ -20,6 +21,7 @@ export default function Page() {
                     <input type="password" name="password" placeholder="password" />
                     <input type="submit" value="Create Account" />
                 </form>
+                <GoogleLogin />
             </div>
         </div>
     )

@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "../../styles/style-auth-page.module.css"
 import { useActionState } from "react";
 import { getUser } from "@/lib/users/action";
+import { GoogleLogin } from "@/components/google-login";
 
 const initialState = {
     message: '',
@@ -20,7 +21,7 @@ export default function Page() {
             <div className={styles['first-half']}></div>
             <div className={styles['second-half']}>
                 <h1>Login</h1>
-                <div>
+                <div className={styles['discription']}>
                     <p>you don't have an account?</p>
                     <Link href='/signup'>signup</Link>
                 </div>
@@ -32,6 +33,7 @@ export default function Page() {
                     <input type="submit" value="Login" disabled={pending} />
                     {state.message && <p>{state.message}</p>}
                 </form>
+                <GoogleLogin />
             </div>
         </div>
     )
