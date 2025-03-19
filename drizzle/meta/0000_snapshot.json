@@ -1,5 +1,5 @@
 {
-  "id": "11c1adc5-e812-4ac3-ac41-b0c1ad858f1a",
+  "id": "cfd28d3c-fa94-4f9b-beab-11899bb44fd7",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -63,7 +63,7 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
@@ -132,7 +132,7 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
@@ -163,20 +163,26 @@
             "cycle": false
           }
         },
-        "name": {
-          "name": "name",
+        "firstName": {
+          "name": "firstName",
           "type": "varchar(255)",
           "primaryKey": false,
           "notNull": true
         },
-        "age": {
-          "name": "age",
-          "type": "integer",
+        "lastName": {
+          "name": "lastName",
+          "type": "varchar(255)",
           "primaryKey": false,
           "notNull": true
         },
         "email": {
           "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password": {
+          "name": "password",
           "type": "varchar(255)",
           "primaryKey": false,
           "notNull": true

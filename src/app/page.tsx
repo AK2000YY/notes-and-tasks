@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from './style.module.css'
+import styles from '../styles/style-main-page.module.css'
 
 export default function Page() {
   return (
