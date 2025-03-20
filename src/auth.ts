@@ -18,28 +18,38 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
     providers: [Google, Credentials({
         credentials: {
-            email: {},
-            password: {}
+            email: { label: "Email", type: "email" },
+            password: { label: "Password", type: "password" },
         },
         authorize: async (credentials) => {
             let user = null
+
+            let email = credentials.email as string;
+            let password = credentials.password as string;
 
             user = await db
                 .select()
                 .from(users)
                 .where(and(
-                    eq(users.email, "" + credentials.email),
-                    eq(users.password, "" + credentials.password)
+                    eq(users.email, email),
+                    eq(users.password, password)
                 ))
 
-            if (user.length === 0) {
-                return null;
+            if (user.length === 0 || !password.trim()) {
+                throw new Error("Invalid email or password");
             }
 
-            console.log('ak' + user[0].email)
-
-            // return user object with their profile data
-            return user[0];
+            return {
+                id: user[0].id,
+                name: user[0].name,
+                email: user[0].email
+            };
         }
     })],
+    session: {
+        strategy: "jwt"
+    },
+    pages: {
+        signIn: "/login",
+    },
 })
