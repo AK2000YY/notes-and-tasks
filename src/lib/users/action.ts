@@ -11,12 +11,7 @@ const UserSchema = z.object({
     email: z
         .string()
         .email(),
-    firstName: z
-        .string()
-        .trim()
-        .max(20, { message: 'first name must be at most 20 character' })
-        .optional(),
-    lastName: z
+    name: z
         .string()
         .trim()
         .max(20, { message: 'last name must be at most 20 character' })
@@ -34,10 +29,9 @@ export async function signInWithGoogle(prevState: any, formData: FormData) {
     })
 }
 
-export async function createUser(formData: FormData) {
+export async function createUser(prevState: any, formData: FormData) {
     const user = {
-        firstName: formData.get('first-name'),
-        lastName: formData.get('last-name'),
+        name: formData.get('name'),
         email: formData.get('email'),
         password: formData.get('password')
     }
@@ -45,19 +39,30 @@ export async function createUser(formData: FormData) {
     const result = UserSchema.safeParse(user);
 
     if (!result.success) {
-        const error = result.error;
-        return
+        return {
+            message: '',
+            ...(result.error.flatten().fieldErrors)
+        }
     }
 
-    await db
-        .insert(users)
-        .values({
-            email: user.email + "",
-            password: user.password + "",
-            name: user.lastName + ""
-        });
+    try {
+        await db
+            .insert(users)
+            .values({
+                email: user.email + "",
+                password: user.password + "",
+                name: user.name + ""
+            });
+    } catch (e) {
+        return {
+            message: 'something is error',
+            email: '',
+            password: '',
+            name: ''
+        }
+    }
 
-    redirect('/dashboard')
+    redirect('/login')
 }
 
 export async function getUser(prevState: any, formData: FormData) {
@@ -75,21 +80,19 @@ export async function getUser(prevState: any, formData: FormData) {
         };
     }
 
-    const userDb = await db
-        .select()
-        .from(users)
-        .where(and(
-            eq(users.email, "" + user.email),
-            eq(users.password, "" + user.password)
-        ));
-
-    if (userDb.length === 0) {
+    try {
+        await signIn("credentials", {
+            ...user,
+            redirect: false
+        });
+    } catch (e) {
         return {
-            message: 'email or password is wrong!',
-            email: '',
-            password: ''
+            message: 'invalid information',
+            password: '',
+            email: ''
         }
     }
 
     redirect('/dashboard')
+
 }
