@@ -1,0 +1,38 @@
+.body {
+    display: grid;
+    grid-template-areas:
+        'note note note note task task task weather weather'
+        'note note note note task task task weather weather'
+        'note note note note task task task weather weather'
+        'note note note note task task task calender calender'
+        'note note note note task task task calender calender'
+        'note note note note task task task calender calender';
+    gap: 20px;
+    width: 100%;
+    height: 70%;
+    padding: 0 20px;
+}
+
+.body div {
+    background-color: #111214;
+    border-radius: var(--small-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body .notes {
+    grid-area: note;
+}
+
+.body .tasks {
+    grid-area: task;
+}
+
+.body .weather {
+    grid-area: weather;
+}
+
+.body .calender {
+    grid-area: calender;
+}
