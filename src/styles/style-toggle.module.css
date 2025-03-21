@@ -1,0 +1,35 @@
+.toggle {
+    width: 60px;
+    height: 35px;
+    border: 2px solid #eee;
+    border-radius: var(--medium-radius);
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #b88efc, #6877f4);
+    cursor: pointer;
+}
+
+.toggle div {
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    border-radius: 50%;
+    background-color: #eee;
+    transition: transform 0.3s ease-in-out;
+}
+
+.toggle .circle-left {
+    transform: translateX(5px);
+}
+
+.toggle .circle-right {
+    transform: translateX(25px);
+}
+
+.toggle .icon {
+    width: 20px;
+    height: 20px;
+    color: #b88efc;
+}

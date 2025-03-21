@@ -55,7 +55,7 @@ export async function createUser(prevState: any, formData: FormData) {
             });
     } catch (e) {
         return {
-            message: 'something is error',
+            message: 'email is used or not connection',
             email: '',
             password: '',
             name: ''
@@ -87,7 +87,7 @@ export async function getUser(prevState: any, formData: FormData) {
         });
     } catch (e) {
         return {
-            message: 'invalid information',
+            message: 'invalid information or not connection',
             password: '',
             email: ''
         }
