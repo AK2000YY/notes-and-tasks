@@ -1,19 +1,17 @@
 .body {
     display: grid;
-    grid-template-areas:
-        'note note note note task task task weather weather'
-        'note note note note task task task weather weather'
-        'note note note note task task task weather weather'
-        'note note note note task task task calender calender'
-        'note note note note task task task calender calender'
-        'note note note note task task task calender calender';
-    gap: 20px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
     width: 100%;
     height: 70%;
     padding: 0 20px;
 }
 
-.body div {
+.body .notes,
+.body .tasks,
+.body .weather,
+.body .calender {
     background-color: #111214;
     border-radius: var(--small-radius);
     display: flex;
@@ -22,17 +20,142 @@
 }
 
 .body .notes {
-    grid-area: note;
+    grid-column: span 3;
+    grid-row: span 2;
+    padding: 20px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(35%, auto);
+    max-height: 100%;
+    gap: 20px;
+}
+
+.body .notes .note-card {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: var(--small-radius);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+}
+
+.body .notes .note-card .note-detail {
+    height: 100%;
+}
+
+.body .notes .note-card:first-child .note-detail {
+    display: flex;
+}
+
+.body .notes .note-card:first-child .note-detail>.icon {
+    height: 100%;
+    width: auto;
+    transform: rotate(-90deg);
+}
+
+.body .notes .note-card .note-detail>.icon {
+    height: 50%;
+    width: auto;
+    transform: rotate(-90deg);
+}
+
+.body .notes .note-card:nth-child(5n+1) {
+    background-color: rgba(250, 109, 109, 0.75);
+}
+
+.body .notes .note-card:nth-child(5n+1)>.icon {
+    color: rgba(250, 109, 109);
+}
+
+.body .notes .note-card:nth-child(5n+2) {
+    background-color: rgba(234, 238, 100, 0.75);
+}
+
+body .notes .note-card:nth-child(5n+2)>.icon {
+    color: rgba(234, 238, 100);
+}
+
+.body .notes .note-card:nth-child(5n+3) {
+    background-color: rgba(127, 217, 255, 0.75);
+}
+
+.body .notes .note-card:nth-child(5n+3)>.icon {
+    color: rgba(127, 217, 255);
+}
+
+.body .notes .note-card:nth-child(5n+4) {
+    background-color: rgba(151, 121, 238, 0.75);
+}
+
+.body .notes .note-card:nth-child(5n+4)>.icon {
+    color: rgba(151, 121, 238);
+}
+
+.body .notes .note-card:nth-child(5n) {
+    background-color: rgba(138, 239, 172, 0.75);
+}
+
+.body .notes .note-card:nth-child(5n)>.icon {
+    color: rgba(138, 239, 172);
+}
+
+.notes .note-card:first-child {
+    grid-column: span 2;
+}
+
+.note-card:first-child .detail {
+    padding-top: 20px;
+}
+
+.note-card .detail {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    row-gap: 20px;
+    font-family: var(--comfortaa), sans-serif;
+}
+
+.note-card .detail h3 {
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.note-card .detail p {
+    color: #ddd;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.note-card .icons {
+    height: 100%;
+    padding: 20px 20px 20px 0;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.note-card .icons .icon {
+    height: 20px;
+    width: auto;
 }
 
 .body .tasks {
-    grid-area: task;
+    grid-column: span 2;
+    grid-row: span 2;
 }
 
 .body .weather {
-    grid-area: weather;
+    grid-column: span 1;
+    grid-row: span 1;
 }
 
 .body .calender {
-    grid-area: calender;
+    grid-column: span 1;
+    grid-row: 1 2;
 }

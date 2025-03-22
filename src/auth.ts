@@ -39,8 +39,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 throw new Error("Invalid email or password");
             }
 
+            console.log(user[0].id)
+
             return {
-                id: user[0].id,
+                id: user[0].id.toString(),
                 name: user[0].name,
                 email: user[0].email
             };
@@ -52,4 +54,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     pages: {
         signIn: "/login",
     },
+    callbacks: {
+        async session({ session, token }) {
+            if (session.user) {
+                session.user.id = token.id as string;
+            }
+            return session;
+        },
+        async jwt({ token, user }) {
+            if (user) {
+                token.id = user.id;
+            }
+            return token;
+        }
+    }
 })

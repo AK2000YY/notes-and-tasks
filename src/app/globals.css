@@ -19,11 +19,26 @@
   --kanit: 'Kanit'
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: gray;
+  border-radius: 12.5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b88efc;
+  border-radius: 10px;
+}
+
 html,
 body {
   height: 100%;
   width: 100%;
-  background: linear-gradient(to right, #b88efc, #6877f4);
+  background: #b88efc;
   display: flex;
   justify-content: center;
   align-items: center;

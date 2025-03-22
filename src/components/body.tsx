@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Calender } from "./calender";
 import { Notes } from "./notes";
 import { Tasks } from "./tasks";
@@ -7,7 +8,9 @@ import styles from '@/styles/style-body.module.css'
 export function Body() {
     return (
         <div className={styles.body}>
-            <Notes />
+            <Suspense fallback={<div>loading...</div>}>
+                <Notes />
+            </Suspense>
             <Tasks />
             <Weather />
             <Calender />
