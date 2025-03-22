@@ -5,6 +5,8 @@ import styles from '@/styles/style-body.module.css'
 import { eq } from 'drizzle-orm';
 import { unstable_cache } from 'next/cache'
 import { NoteCard } from './note-card';
+import { MdNoteAdd } from 'react-icons/md';
+import Link from 'next/link';
 
 
 const getNotes = unstable_cache(
@@ -30,18 +32,23 @@ export async function Notes() {
     const notes = await getNotes(userId)
 
     return (
-        <div className={styles.notes}>
-            {notes.map(note =>
-                <NoteCard
-                    key={note.id}
-                    note={{
-                        id: note.id,
-                        title: note.title || '',
-                        content: note.content || '',
-                        date: note.date || ''
-                    }}
-                />
-            )}
+        <div className={styles['notes-container']}>
+            <div className={styles.notes}>
+                {notes.map(note =>
+                    <NoteCard
+                        key={note.id}
+                        note={{
+                            id: note.id,
+                            title: note.title || '',
+                            content: note.content || '',
+                            date: note.date || ''
+                        }}
+                    />
+                )}
+            </div>
+            <Link href={'/dashboard/note'} className={styles['add-button']}>
+                <MdNoteAdd />
+            </Link>
         </div>
     )
 }
