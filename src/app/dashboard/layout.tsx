@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function Layout({ children, note, task }: {
     children: React.ReactNode,
     note: React.ReactNode,
@@ -6,6 +8,7 @@ export default function Layout({ children, note, task }: {
     return (
         <>
             {children}
+            {note}
         </>
     )
 }

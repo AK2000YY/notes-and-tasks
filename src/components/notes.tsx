@@ -46,7 +46,7 @@ export async function Notes() {
                     />
                 )}
             </div>
-            <Link href={'/dashboard/note'} className={styles['add-button']}>
+            <Link href={'/dashboard/create'} className={styles['add-button']}>
                 <MdNoteAdd />
             </Link>
         </div>
