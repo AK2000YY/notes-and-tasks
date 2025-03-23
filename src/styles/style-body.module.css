@@ -305,6 +305,11 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     cursor: pointer;
 }
 
+.delete-note-form .buttons button a {
+    color: white;
+    text-decoration: none;
+}
+
 .delete-note-form .buttons button:disabled {
     cursor: not-allowed;
     opacity: 0.6;

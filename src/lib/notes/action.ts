@@ -111,3 +111,42 @@ export async function updateNote(prevState: any, id: number, formData: FormData)
     revalidateTag('note');
     redirect('/dashboard')
 }
+
+export async function deleteNote(prevState: any, id: number, formData: FormData) {
+    const session = await auth();
+    const userId = session?.user?.id;
+    try {
+
+        const user = await db
+            .select()
+            .from(users)
+            .where(
+                eq(users.id, '' + userId)
+            )
+
+        if (user[0].id != userId) {
+            return {
+                message: "you're not allowed to edit it",
+                title: '',
+                content: ''
+            }
+        }
+
+        await db
+            .delete(notesTable)
+            .where(
+                eq(notesTable.id, id)
+            )
+
+    } catch (e) {
+        return {
+            message: 'something is failed',
+            title: '',
+            content: ''
+        }
+    }
+
+    revalidateTag('notes');
+    revalidateTag('note');
+    redirect('/dashboard')
+}
