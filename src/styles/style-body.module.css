@@ -261,6 +261,63 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     font-size: 16px;
 }
 
+.delete-note-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    background-color: #111214;
+    color: white;
+    height: fit-content;
+    width: 400px;
+    padding: 40px 20px 40px 40px;
+    border: 2px solid #b88efc;
+    border-radius: var(--medium-radius);
+    position: relative;
+}
+
+.delete-note-form h1 {
+    font-family: var(--kanit), sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+.delete-note-form p {
+    font-family: var(--comfortaa), sans-serif;
+    font-weight: 100;
+    font-size: 8px;
+    color: #ddd;
+}
+
+.delete-note-form .buttons {
+    display: flex;
+    justify-content: end;
+    column-gap: 20px;
+    padding-top: 20px;
+}
+
+.delete-note-form .buttons button {
+    width: 80px;
+    padding: 10px;
+    border-radius: var(--small-radius);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.delete-note-form .buttons button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.delete-note-form .buttons .cancel-button {
+    background-color: #2c3542;
+}
+
+.delete-note-form .buttons .delete-button {
+    background-color: red;
+}
+
 /* finish notes section */
 
 .body .tasks {

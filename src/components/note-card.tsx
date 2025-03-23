@@ -23,7 +23,7 @@ export function NoteCard({ note }: { note: Note }) {
             </div>
             <div className={styles.icons}>
                 <div>
-                    <MdDelete className={styles.icon} />
+                    <Link href={`/dashboard/delete/${note.id}`}><MdDelete className={styles.icon} /></Link>
                     <Link href={`/dashboard/update/${note.id}`}><MdEdit className={styles.icon} /></Link>
                 </div>
                 <FaArrowRight />
