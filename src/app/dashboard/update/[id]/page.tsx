@@ -5,7 +5,7 @@ import { eq } from 'drizzle-orm'
 import { unstable_cache } from 'next/cache'
 
 
-const getNote = unstable_cache(
+export const getNote = unstable_cache(
     async (noteId: number) => {
         return await db
             .select()

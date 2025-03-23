@@ -192,7 +192,8 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     align-items: center;
 }
 
-.note-form {
+.note-form,
+.note-show {
     display: flex;
     flex-direction: column;
     row-gap: 30px;
@@ -205,16 +206,39 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     position: relative;
 }
 
-.note-form .close {
+.note-form .close,
+.note-show .close {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: red;
-    font-size: 25px;
-    background-color: #695151;
+    color: #B88EFC;
+    font-size: 30px;
+    background-color: transparent;
     border-radius: 50%;
     font-weight: bold;
     cursor: pointer;
+}
+
+.note-show {
+    color: white;
+    font-family: var(--comfortaa), sans-serif;
+}
+
+.note-show h1 {
+    padding-top: 30px;
+    font-size: 50px;
+}
+
+.note-show p:first-of-type {
+    font-size: 8px;
+    color: gray;
+}
+
+.note-show p:last-of-type {
+    font-size: 20px;
+    color: #ddd;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .note-form h1 {
