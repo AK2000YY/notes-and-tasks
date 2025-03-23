@@ -2,7 +2,6 @@
 
 import { db } from "@/db/drizzle";
 import { users } from "@/db/schema/users";
-import { and, eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { signIn } from "@/auth"
