@@ -12,7 +12,7 @@ interface Note {
 
 export function NoteCard({ note }: { note: Note }) {
     return (
-        <div className={styles['note-card']}>
+        <>
             <div className={styles['note-detail']}>
                 <FaNoteSticky className={styles.icon} />
                 <div className={styles.detail}>
@@ -27,6 +27,6 @@ export function NoteCard({ note }: { note: Note }) {
                 </div>
                 <FaArrowRight />
             </div>
-        </div>
+        </>
     )
 }

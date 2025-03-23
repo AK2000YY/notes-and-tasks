@@ -71,6 +71,7 @@
 
 .body .notes .note-card:first-child .note-detail {
     display: flex;
+    margin-left: -8px;
 }
 
 .body .notes .note-card:first-child .note-detail>.icon {
