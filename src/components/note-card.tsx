@@ -1,4 +1,5 @@
 import styles from '@/styles/style-body.module.css'
+import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 import { FaNoteSticky } from 'react-icons/fa6'
 import { MdDelete, MdEdit } from 'react-icons/md';
@@ -23,7 +24,7 @@ export function NoteCard({ note }: { note: Note }) {
             <div className={styles.icons}>
                 <div>
                     <MdDelete className={styles.icon} />
-                    <MdEdit className={styles.icon} />
+                    <Link href={`/dashboard/update/${note.id}`}><MdEdit className={styles.icon} /></Link>
                 </div>
                 <FaArrowRight />
             </div>

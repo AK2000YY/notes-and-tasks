@@ -165,6 +165,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
 }
 
 .note-card .icons .icon {
+    color: white;
     height: 20px;
     width: auto;
 }
@@ -187,7 +188,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     flex-direction: column;
     row-gap: 30px;
     background-color: #111214;
-    width: 50%;
+    width: 500px;
     height: 80%;
     padding: 60px 40px 100px;
     border: 2px solid #b88efc;
