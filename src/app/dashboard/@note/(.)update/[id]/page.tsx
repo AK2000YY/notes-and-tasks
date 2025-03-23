@@ -15,7 +15,7 @@ const getNote = unstable_cache(
             )
     },
     ['note'],
-    { revalidate: 3600, tags: ['note'] }
+    { revalidate: 6 * 3600, tags: ['note'] }
 )
 
 export default async function Page({ params }: {
@@ -23,6 +23,7 @@ export default async function Page({ params }: {
 }) {
     const { id } = await params
     const note = await getNote(+id)
+    console.log('ak2000yy', note[0])
     return (
         <div className={styles.overlay}>
             <NoteUpdate

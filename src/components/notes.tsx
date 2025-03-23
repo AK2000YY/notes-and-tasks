@@ -12,10 +12,11 @@ const getNotes = unstable_cache(
             .select()
             .from(notesTable)
             .where(eq(notesTable.userId, userId))
+            .orderBy(notesTable.id)
         return notes;
     },
     ['notes'],
-    { revalidate: 3600, tags: ['notes'] }
+    { revalidate: 6 * 3600, tags: ['notes'] }
 )
 
 export async function Notes() {
