@@ -76,12 +76,12 @@ export async function updateNote(prevState: any, id: number, formData: FormData)
 
         const user = await db
             .select()
-            .from(users)
+            .from(notesTable)
             .where(
-                eq(users.id, '' + userId)
+                eq(notesTable.id, id)
             )
 
-        if (user[0].id != userId) {
+        if (user[0].userId != userId) {
             return {
                 message: "you're not allowed to edit it",
                 title: '',
@@ -119,14 +119,14 @@ export async function deleteNote(prevState: any, id: number, formData: FormData)
 
         const user = await db
             .select()
-            .from(users)
+            .from(notesTable)
             .where(
-                eq(users.id, '' + userId)
+                eq(notesTable.id, id)
             )
 
-        if (user[0].id != userId) {
+        if (user[0].userId != userId) {
             return {
-                message: "you're not allowed to edit it",
+                message: "you're not allowed to delete it",
                 title: '',
                 content: ''
             }
