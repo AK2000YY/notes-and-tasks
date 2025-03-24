@@ -1,14 +1,12 @@
-import Link from "next/link"
-
-export default function Layout({ children, note, task }: {
+export default function Layout({ children, crud, task }: {
     children: React.ReactNode,
-    note: React.ReactNode,
+    crud: React.ReactNode,
     task: React.ReactNode
 }) {
     return (
         <>
             {children}
-            {note}
+            {crud}
         </>
     )
 }

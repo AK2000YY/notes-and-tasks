@@ -47,7 +47,7 @@ export function ListNoteWithScroll({ noteList }: { noteList: Note[] }) {
                     </div>
                 )}
             </div>
-            <Link href={'/dashboard/create'} className={styles['add-button']}>
+            <Link href={'/dashboard/note/create'} className={styles['add-button']}>
                 <MdNoteAdd />
             </Link>
         </div>

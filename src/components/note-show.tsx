@@ -1,5 +1,5 @@
 import styles from '@/styles/style-body.module.css'
-import { getNote } from "@/app/dashboard/update/[id]/page"
+import { getNote } from "@/app/dashboard/note/update/[id]/page"
 import Link from 'next/link'
 import { IoClose } from 'react-icons/io5'
 

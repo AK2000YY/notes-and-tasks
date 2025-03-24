@@ -23,10 +23,10 @@ export function NoteCard({ note }: { note: Note }) {
             </div>
             <div className={styles.icons}>
                 <div>
-                    <Link href={`/dashboard/delete/${note.id}`}><MdDelete className={styles.icon} /></Link>
-                    <Link href={`/dashboard/update/${note.id}`}><MdEdit className={styles.icon} /></Link>
+                    <Link href={`/dashboard/note/delete/${note.id}`}><MdDelete className={styles.icon} /></Link>
+                    <Link href={`/dashboard/note/update/${note.id}`}><MdEdit className={styles.icon} /></Link>
                 </div>
-                <Link href={`/dashboard/show/${note.id}`}><FaArrowRight className={styles.icon} /></Link>
+                <Link href={`/dashboard/note/show/${note.id}`}><FaArrowRight className={styles.icon} /></Link>
             </div>
         </>
     )
