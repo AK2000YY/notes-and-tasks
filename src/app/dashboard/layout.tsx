@@ -1,7 +1,6 @@
-export default function Layout({ children, crud, task }: {
+export default function Layout({ children, crud }: {
     children: React.ReactNode,
-    crud: React.ReactNode,
-    task: React.ReactNode
+    crud: React.ReactNode
 }) {
     return (
         <>

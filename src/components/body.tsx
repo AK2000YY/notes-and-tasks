@@ -11,7 +11,9 @@ export function Body() {
             <Suspense fallback={<div>loading...</div>}>
                 <Notes />
             </Suspense>
-            <Tasks />
+            <Suspense fallback={<div>loading...</div>}>
+                <Tasks />
+            </Suspense>
             <Chart />
             <Calender />
         </div>

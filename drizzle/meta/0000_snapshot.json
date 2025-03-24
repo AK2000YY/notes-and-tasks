@@ -1,5 +1,5 @@
 {
-  "id": "af4b537f-f17e-43ef-afcc-f0bae1d38386",
+  "id": "5cef7f8b-9d15-4e41-a43d-c5f65138caf3",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -321,11 +321,12 @@
           "primaryKey": false,
           "notNull": false
         },
-        "content": {
-          "name": "content",
-          "type": "text",
+        "executed": {
+          "name": "executed",
+          "type": "boolean",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": false
         },
         "date": {
           "name": "date",
