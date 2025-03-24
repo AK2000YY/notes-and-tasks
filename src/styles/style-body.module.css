@@ -371,4 +371,65 @@ body .notes .note-card:nth-child(5n+2)>.icon {
 .body .calender {
     grid-column: span 3;
     grid-row: 1 2;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.body .calender .header {
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--kanit), sans-serif;
+    font-size: 12px;
+    color: #ddd;
+}
+
+.body .calender .header h1 {
+    font-weight: 300;
+}
+
+.body .calender .buttons {
+    display: flex;
+    column-gap: 15px;
+    font-size: 25px;
+}
+
+.body .calender .buttons .button {
+    background-color: #2c3542;
+    font-size: 40px;
+    padding: 8px;
+    color: #b88efc;
+    border-radius: 50%;
+}
+
+.body .calender .days-name {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-family: var(--kanit), sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    color: #78879e;
+    margin-top: 25px;
+}
+
+.body .calender .days-number {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    justify-items: center;
+    row-gap: 8px;
+    margin-top: 28px;
+}
+
+.body .calender .days-number div {
+    font-family: var(--kanit), sans-serif;
+    font-size: 8px;
+    font-weight: 200;
 }
