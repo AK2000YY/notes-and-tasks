@@ -408,13 +408,58 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     font-size: 22px;
 }
 
-.tasks-container .tasks .task-card form:last-child {
+.tasks-container .tasks .task-card form {
+    display: flex;
+    height: 100%;
+    margin: 0 10px;
+    align-items: center;
+    position: relative;
+    height: fit-content;
+}
+
+.tasks-container .tasks .task-card form input {
+    accent-color: #B88EFC;
+}
+
+.tasks-container .tasks .task-card form input,
+.tasks-container .tasks .task-card form button {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+
+.tasks-container .tasks .task-card form button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.tasks-container .tasks .task-card form button:disabled {
+    cursor: not-allowed;
+}
+
+.tasks-container .tasks .task-card p.disabled {
+    text-decoration: line-through;
+}
+
+.tasks-container .tasks .error {
+    margin-left: 10%;
+    color: red;
+    font-size: 8px;
+}
+
+.tasks-container .tasks .task-card a {
     margin-left: auto;
 }
 
 .tasks-container .tasks .task-card .icon {
+    margin-left: auto;
     color: red;
     cursor: pointer;
+}
+
+.tasks-container .tasks .task-card .icon-disable {
+    display: none;
 }
 
 /* finish taskes section */
