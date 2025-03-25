@@ -27,7 +27,7 @@ export function ListNoteWithScroll({ noteList }: { noteList: Note[] }) {
 
 
     return (
-        <div className={styles['notes-container']}>
+        <div id="1" className={styles['notes-container']}>
             <div className={styles.notes}>
                 {noteList.length === 0 && <h1>Add Your Notes</h1>}
                 {noteList.map((note, index) =>

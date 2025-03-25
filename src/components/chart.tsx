@@ -15,7 +15,7 @@ const data = [
 
 export function Chart() {
     return (
-        <div className={styles.chart}>
+        <div id='3' className={styles.chart}>
             <ResponsiveContainer width="100%" height="90%" style={{
                 transform: 'translate(-24px, 10px)'
             }}>

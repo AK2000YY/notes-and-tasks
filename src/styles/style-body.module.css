@@ -1,3 +1,33 @@
+.nav {
+    list-style: none;
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-around;
+    background-color: transparent;
+    display: none;
+}
+
+@media (max-width: 800) {
+    .nav {
+        display: flex;
+    }
+}
+
+.nav a {
+    text-decoration: none;
+    font-family: var(--bebas);
+    color: #6877f4;
+    padding: 3px 8px;
+    border-radius: var(--small-radius);
+}
+
+.nav a.selected {
+    background-color: #2c3542;
+    padding: 3px 8px;
+    border-radius: var(--small-radius);
+}
+
 .body {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -6,6 +36,17 @@
     width: 100%;
     height: 78%;
     padding: 0 20px;
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 800) {
+    .body {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        margin-right: 8px;
+    }
 }
 
 .body .notes-container,
@@ -26,6 +67,14 @@
     position: relative;
 }
 
+@media (max-width: 800) {
+    .body .notes-container {
+        min-width: 100%;
+        min-height: 100%;
+        padding: 10px;
+    }
+}
+
 .body .notes {
     width: 100%;
     height: 100%;
@@ -39,6 +88,13 @@
     gap: 20px;
 }
 
+@media (max-width: 800) {
+    .body .notes {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .body .notes h1 {
     grid-column: span 2;
     grid-row: span 3;
@@ -46,6 +102,14 @@
     align-items: center;
     justify-content: center;
     font-family: var(--comfortaa), sans-serif;
+}
+
+@media (max-width: 800) {
+    .body .notes h1 {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
 }
 
 .body .notes-container .add-button {
@@ -62,6 +126,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 800) {
+    .body .notes-container .add-button {
+        width: 45px;
+        height: 45px;
+        font-size: 30px;
+    }
 }
 
 .body .notes .note-card {
@@ -87,6 +159,16 @@
     height: 100%;
     width: auto;
     transform: rotate(-90deg);
+}
+
+@media (max-width: 800) {
+    .body .notes .note-card:first-child .note-detail {
+        display: block;
+    }
+
+    .body .notes .note-card:first-child .note-detail>.icon {
+        height: 50%;
+    }
 }
 
 .body .notes .note-card .note-detail>.icon {
@@ -143,6 +225,12 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     padding-top: 20px;
 }
 
+@media (max-width: 800) {
+    .note-card:first-child .detail {
+        padding-top: 10px;
+    }
+}
+
 .note-card .detail {
     padding-left: 10px;
     display: flex;
@@ -162,6 +250,21 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     font-weight: 300;
     font-size: 15px;
 }
+
+@media (max-width: 800) {
+    .note-card .detail h3 {
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .note-card .detail p {
+        color: #ddd;
+        font-weight: 300;
+        font-family: var(--kanit), sans-serif;
+        font-size: 8px;
+    }
+}
+
 
 .note-card .icons {
     height: 100%;
@@ -186,6 +289,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     background-color: rgba(17, 18, 20, 0.8);
     width: 100%;
     height: 100%;
+    padding: 0 20px;
     border-radius: var(--small-radius);
     display: flex;
     justify-content: center;
@@ -205,6 +309,12 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     border: 2px solid #b88efc;
     border-radius: var(--medium-radius);
     position: relative;
+}
+
+.note-form,
+.note-show,
+.task-form {
+    width: 100%;
 }
 
 .task-form {
@@ -235,16 +345,24 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     font-size: 50px;
 }
 
+@media (max-width: 800) {
+    .note-show h1 {
+        padding-top: 30px;
+        font-size: 20px;
+    }
+}
+
 .note-show p:first-of-type {
     font-size: 8px;
     color: gray;
 }
 
 .note-show p:last-of-type {
-    font-size: 20px;
+    font-size: 18px;
     color: #ddd;
     height: 100%;
     overflow-y: auto;
+    word-wrap: break-word;
 }
 
 .note-form h1,
@@ -370,11 +488,22 @@ body .notes .note-card:nth-child(5n+2)>.icon {
 .body .tasks-container {
     grid-column: span 3;
     grid-row: span 2;
+    padding-right: 8px;
+}
+
+@media (max-width: 800) {
+    .body .tasks-container {
+        min-height: 90%;
+        width: 100%;
+    }
 }
 
 .tasks-container .tasks {
     width: 100%;
     height: 100%;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .tasks-container .tasks h1 {
@@ -392,7 +521,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     align-items: center;
     text-decoration: none;
     width: 90%;
-    height: 8%;
+    height: 80px;
     margin: 10px auto;
     border-radius: var(--small-radius);
     background-color: transparent;
@@ -404,6 +533,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
 }
 
 .tasks-container .tasks .tasks-list {
+    flex-grow: 1;
     overflow-y: auto;
 }
 
@@ -483,6 +613,12 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     font-weight: 200;
 }
 
+@media (max-width: 800) {
+    .body .chart {
+        min-height: 50%;
+    }
+}
+
 .body .calender {
     grid-column: span 3;
     grid-row: 1 2;
@@ -502,6 +638,17 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     font-family: var(--kanit), sans-serif;
     font-size: 12px;
     color: #ddd;
+}
+
+@media (max-width: 800) {
+    .body .calender {
+        min-height: 70%;
+    }
+
+    .body .calender .header {
+        font-size: 10px;
+        padding: 0 10px;
+    }
 }
 
 .body .calender .header h1 {
@@ -547,4 +694,18 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     font-family: var(--kanit), sans-serif;
     font-size: 8px;
     font-weight: 200;
+}
+
+@media (max-width: 800) {
+    .body .calender .days-name {
+        margin-top: 0px;
+    }
+
+    .body .calender .days-number {
+        margin-top: 0px;
+    }
+
+    .body .calender .days-number div {
+        font-size: 12px;
+    }
 }

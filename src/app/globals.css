@@ -24,6 +24,13 @@
   height: 5px;
 }
 
+@media (max-width: 800) {
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+}
+
 ::-webkit-scrollbar-track {
   background: gray;
   border-radius: 12.5px;
