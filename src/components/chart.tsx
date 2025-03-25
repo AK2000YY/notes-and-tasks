@@ -1,38 +1,66 @@
-'use client'
+import { unstable_cache, unstable_noStore } from 'next/cache';
+import { ChartCard } from './chart-card';
+import { db } from '@/db/drizzle';
+import { tasksTable } from '@/db/schema/tasks';
+import { sql } from 'drizzle-orm';
+import { auth } from '@/auth';
 
-import styles from '@/styles/style-body.module.css';
-import { XAxis, YAxis, ResponsiveContainer, Tooltip, Legend, AreaChart, Area } from 'recharts';
 
-const data = [
-    { day: 1, tasks: 4, apply: 2 },
-    { day: 2, tasks: 5, apply: 3 },
-    { day: 3, tasks: 2, apply: 2 },
-    { day: 4, tasks: 8, apply: 7 },
-    { day: 5, tasks: 15, apply: 10 },
-    { day: 6, tasks: 6, apply: 5 },
-    { day: 7, tasks: 10, apply: 7 }
-]
 
-export function Chart() {
+const getTaskForSevenDays = async (userId: string) => {
+    unstable_noStore();
+    const dateOfDay = new Date();
+    dateOfDay.setDate(dateOfDay.getDate() - 6);
+    const formattedDate = dateOfDay.toISOString().split("T")[0];
+    const result = await db
+        .select({
+            date: tasksTable.date,
+            totalTasks: sql<number>`COUNT(*)`,
+            executedTasks: sql<number>`SUM(CASE WHEN ${tasksTable.executed} = true THEN 1 ELSE 0 END)`,
+        })
+        .from(tasksTable)
+        .where(
+            sql`${tasksTable.date} >= ${formattedDate} AND ${tasksTable.userId} = ${userId}`
+        )
+        .groupBy(tasksTable.date)
+        .orderBy(tasksTable.date);
+
+    let initialAdding = [];
+
+    for (let i = 6; i >= 0; i--) {
+        const dateOfDay = new Date();
+        dateOfDay.setDate(dateOfDay.getDate() - i);
+        const formattedDate = dateOfDay.toISOString().split("T")[0];
+        if (!result.some(ele => ele.date === formattedDate)) {
+            initialAdding.push(
+                { date: formattedDate, totalTasks: '0', executedTasks: '0' }
+            )
+        }
+    }
+
+    return [
+        ...result,
+        ...initialAdding
+    ]
+        .sort((a, b) => new Date(a.date || '').getTime() - new Date(b.date || '').getTime())
+        .map(ele => {
+            return {
+                ...ele,
+                date: ele.date?.substring(ele.date?.length - 2),
+            }
+        });
+}
+
+export async function Chart() {
+    const session = await auth();
+    const userId = session?.user?.id;
+
+    if (!userId) return null
+
+    const tasks = await getTaskForSevenDays(userId)
+
+    console.log(tasks)
     return (
-        <div id='3' className={styles.chart}>
-            <ResponsiveContainer width="100%" height="90%" style={{
-                transform: 'translate(-24px, 10px)'
-            }}>
-                <AreaChart
-                    data={data}
-                    margin={{
-                        bottom: 5,
-                    }}
-                >
-                    <XAxis dataKey="day" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    <Area type="monotone" dataKey="apply" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
-                    <Area type="monotone" dataKey="tasks" stackId="1" stroke="#8884d8" fill="#8884d8" />
-                </AreaChart>
-            </ResponsiveContainer>
-        </div >
+        <ChartCard data={tasks} />
     )
 }
