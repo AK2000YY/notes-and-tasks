@@ -193,7 +193,8 @@ body .notes .note-card:nth-child(5n+2)>.icon {
 }
 
 .note-form,
-.note-show {
+.note-show,
+.task-form {
     display: flex;
     flex-direction: column;
     row-gap: 30px;
@@ -206,8 +207,13 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     position: relative;
 }
 
+.task-form {
+    height: fit-content;
+}
+
 .note-form .close,
-.note-show .close {
+.note-show .close,
+.task-form .close {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -241,13 +247,15 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     overflow-y: auto;
 }
 
-.note-form h1 {
+.note-form h1,
+.task-form h1 {
     color: white;
     letter-spacing: 2px;
     font-family: var(--bebas);
 }
 
 .note-form input,
+.task-form input,
 .note-form textarea {
     border: none;
     max-width: 100%;
@@ -269,7 +277,8 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     background-color: rgba(255, 255, 255, .06);
 }
 
-.note-form button {
+.note-form button,
+.task-form button {
     margin-top: auto;
     padding: 20px 0;
     border: none;
@@ -378,7 +387,10 @@ body .notes .note-card:nth-child(5n+2)>.icon {
 }
 
 .tasks-container .tasks .add-button {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
     width: 90%;
     height: 8%;
     margin: 10px auto;

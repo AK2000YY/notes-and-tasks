@@ -2,7 +2,7 @@ import { auth } from '@/auth'
 import { db } from '@/db/drizzle'
 import { tasksTable } from '@/db/schema/tasks'
 import styles from '@/styles/style-body.module.css'
-import { and, eq } from 'drizzle-orm'
+import { and, asc, eq } from 'drizzle-orm'
 import { unstable_cache } from 'next/cache'
 import { TaskList } from './task-list'
 
@@ -18,6 +18,10 @@ const getTodayTasks = unstable_cache(
                     eq(tasksTable.userId, userId),
                     eq(tasksTable.date, dateOfDay)
                 )
+            )
+            .orderBy(
+                asc(tasksTable.executed),
+                asc(tasksTable.id)
             )
     },
     ['tasks'],

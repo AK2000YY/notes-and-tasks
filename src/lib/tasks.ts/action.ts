@@ -5,16 +5,23 @@ import { db } from "@/db/drizzle";
 import { tasksTable } from "@/db/schema/tasks";
 import { and, eq } from "drizzle-orm";
 import { revalidateTag } from "next/cache";
+import { redirect } from "next/navigation";
+import { z } from "zod";
+
+const TaskSchema = z.object({
+    title: z
+        .string()
+        .trim()
+        .max(20, { message: 'title must be at most 20 character' })
+})
 
 export async function toggleTask(prevState: any, id: number) {
     const session = await auth();
     const userId = session?.user?.id;
 
-    console.log('ak', userId)
-
     if (!userId)
         return {
-            message: 'you are not log'
+            message: 'you are not allowed to do this'
         }
 
     try {
@@ -49,4 +56,43 @@ export async function toggleTask(prevState: any, id: number) {
 
     revalidateTag('tasks')
 
+}
+
+export async function createTask(prevState: any, formDate: FormData) {
+    const session = await auth();
+    const userId = session?.user?.id;
+
+    if (!userId)
+        return {
+            message: 'you are not allowed to do this',
+            title: ''
+        }
+
+    const task = TaskSchema.safeParse({
+        title: formDate.get('title')
+    });
+
+    if (!task.success) {
+        return {
+            message: '',
+            ...task.error.flatten().fieldErrors
+        }
+    }
+
+    try {
+        await db
+            .insert(tasksTable)
+            .values({
+                title: task.data.title,
+                userId: userId
+            })
+    } catch (e) {
+        return {
+            message: 'something is failed',
+            title: ''
+        }
+    }
+
+    revalidateTag('tasks')
+    redirect('/dashboard')
 }
