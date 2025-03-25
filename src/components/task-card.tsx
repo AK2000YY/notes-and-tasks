@@ -30,7 +30,7 @@ export function TaskCard({ task }: {
                     <button type='submit' disabled={pendding || task.executed || false}></button>
                 </form>
                 <p className={task.executed ? styles.disabled : ''}>{task.title}</p>
-                <Link href={'/dashboard/task/delete'}><MdDelete className={task.executed ? styles['icon-disable'] : styles.icon} /></Link>
+                <Link href={`/dashboard/task/delete/${task.id}`}><MdDelete className={task.executed ? styles['icon-disable'] : styles.icon} /></Link>
             </div >
             {state?.message && <p className={styles.error}>{state.message}</p>}
         </>

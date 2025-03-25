@@ -25,7 +25,7 @@ const getTodayTasks = unstable_cache(
             )
     },
     ['tasks'],
-    { revalidate: 3, tags: ['tasks'] }
+    { revalidate: 7 * 3600, tags: ['tasks'] }
 )
 
 

@@ -96,3 +96,44 @@ export async function createTask(prevState: any, formDate: FormData) {
     revalidateTag('tasks')
     redirect('/dashboard')
 }
+
+export async function deleteTask(prevState: any, id: number, formDate: FormData) {
+    const session = await auth();
+    const userId = session?.user?.id;
+
+    if (!userId)
+        return {
+            message: 'you are not allowed to do this'
+        }
+
+    try {
+        const task = await db
+            .select()
+            .from(tasksTable)
+            .where(
+                and(
+                    eq(tasksTable.id, id),
+                    eq(tasksTable.userId, userId)
+                )
+            )
+
+        if (task.length === 0 || task[0].executed)
+            return {
+                message: 'you are not allowed to do this'
+            }
+
+        await db
+            .delete(tasksTable)
+            .where(
+                eq(tasksTable.id, id)
+            )
+
+    } catch (e) {
+        return {
+            message: 'something is failed'
+        }
+    }
+
+    revalidateTag('tasks');
+    redirect('/dashboard')
+}
