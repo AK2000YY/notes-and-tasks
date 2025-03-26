@@ -123,7 +123,6 @@
     font-size: 16px;
 }
 
-input:hover,
 input:focus,
 input:active {
     transition: background-color 5000s ease-in-out 0s;
