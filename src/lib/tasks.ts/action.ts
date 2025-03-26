@@ -12,6 +12,7 @@ const TaskSchema = z.object({
     title: z
         .string()
         .trim()
+        .min(1, { message: 'title must be at least 1 character' })
         .max(20, { message: 'title must be at most 20 character' })
 })
 

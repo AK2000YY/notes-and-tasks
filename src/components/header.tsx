@@ -1,11 +1,13 @@
 'use client'
 
+import Link from "next/link";
 import { Toggle } from "./toggle";
 import styles from "@/styles/style-dashboard.module.css"
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { TbLogout } from "react-icons/tb";
+import { RiShutDownLine } from "react-icons/ri";
 
 export function Header() {
     const [active, setActive] = useState(true);
@@ -42,6 +44,7 @@ export function Header() {
                     <input type="text" name='search' placeholder={placeholder} />
                     <button type="submit"><FaSearch className={styles.icon} /></button>
                 </form>
+                <Link href={'/dashboard/logout'}><RiShutDownLine className={styles.icon} /></Link>
             </div>
         </div>
     )

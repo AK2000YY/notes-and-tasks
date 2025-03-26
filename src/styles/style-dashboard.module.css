@@ -35,7 +35,7 @@
 
 .header div {
     display: flex;
-    column-gap: 20px;
+    column-gap: 10px;
     align-items: center;
 }
 
@@ -64,13 +64,13 @@
 @media (max-width: 645px) {
     .header div input {
         height: 35px;
-        width: 90px;
+        width: 85px;
         padding: 0 10px;
     }
 
     .header div input:focus {
         outline: none;
-        width: 100px;
+        width: 95px;
     }
 
     .header div input::placeholder {
@@ -97,6 +97,17 @@
     .header div button .icon {
         width: 20px;
         height: 20px;
+    }
+}
+
+.header div a .icon {
+    color: red;
+    font-size: 40px;
+}
+
+@media (max-width: 800) {
+    .header div a .icon {
+        font-size: 30px;
     }
 }
 
