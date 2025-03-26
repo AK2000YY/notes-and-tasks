@@ -222,7 +222,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
 }
 
 .note-card:first-child .detail {
-    padding-top: 20px;
+    padding-top: 30px;
 }
 
 @media (max-width: 800) {
@@ -241,30 +241,15 @@ body .notes .note-card:nth-child(5n+2)>.icon {
 }
 
 .note-card .detail h3 {
-    font-weight: bold;
-    font-size: 35px;
+    font-weight: 400;
+    font-size: 16px;
 }
 
 .note-card .detail p {
     color: #ddd;
     font-weight: 300;
-    font-size: 15px;
+    font-size: 8px;
 }
-
-@media (max-width: 800) {
-    .note-card .detail h3 {
-        font-weight: bold;
-        font-size: 18px;
-    }
-
-    .note-card .detail p {
-        color: #ddd;
-        font-weight: 300;
-        font-family: var(--kanit), sans-serif;
-        font-size: 8px;
-    }
-}
-
 
 .note-card .icons {
     height: 100%;
@@ -298,7 +283,8 @@ body .notes .note-card:nth-child(5n+2)>.icon {
 
 .note-form,
 .note-show,
-.task-form {
+.task-form,
+.search-list {
     display: flex;
     flex-direction: column;
     row-gap: 30px;
@@ -311,10 +297,63 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     position: relative;
 }
 
-.note-form,
-.note-show,
-.task-form {
+@media (max-width:800) {
+
+    .note-form,
+    .note-show,
+    .task-form,
+    .search-list {
+        width: 100%;
+    }
+
+}
+
+.search-list {
+    overflow-y: auto;
+}
+
+.search-list p {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 0;
     width: 100%;
+    text-align: center;
+    font-family: var(--comfortaa);
+}
+
+.search-list h1 {
+    color: white;
+    font-family: var(--comfortaa), sans-serif;
+}
+
+@media (max-width: 800) {
+    .search-list h1 {
+        font-size: 20px;
+    }
+}
+
+.search-card {
+    background-color: #2C3542;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: var(--small-radius);
+    font-family: var(--kanit), sans-serif;
+    font-weight: 200;
+}
+
+.search-list .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+}
+
+.search-card a {
+    color: white;
 }
 
 .task-form {
@@ -694,6 +733,11 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     font-family: var(--kanit), sans-serif;
     font-size: 8px;
     font-weight: 200;
+}
+
+.body .calender .days-number div.active {
+    color: #7E57C2;
+    font-weight: bold;
 }
 
 @media (max-width: 800) {

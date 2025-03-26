@@ -55,7 +55,7 @@ export async function toggleTask(prevState: any, id: number) {
     }
 
     revalidateTag('tasks')
-
+    revalidateTag('task-char')
 }
 
 export async function createTask(prevState: any, formDate: FormData) {
@@ -94,6 +94,7 @@ export async function createTask(prevState: any, formDate: FormData) {
     }
 
     revalidateTag('tasks')
+    revalidateTag('task-char')
     redirect('/dashboard')
 }
 
@@ -135,5 +136,6 @@ export async function deleteTask(prevState: any, id: number, formDate: FormData)
     }
 
     revalidateTag('tasks');
+    revalidateTag('task-char');
     redirect('/dashboard')
 }

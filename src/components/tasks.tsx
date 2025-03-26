@@ -9,7 +9,12 @@ import { TaskList } from './task-list'
 
 const getTodayTasks = unstable_cache(
     async (userId: string) => {
-        const dateOfDay = new Date().toISOString().split("T")[0];
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        const yyyy = today.getFullYear();
+        const dateOfDay = yyyy + '-' + mm + '-' + dd;
+        console.log('123', dateOfDay);
         return await db
             .select()
             .from(tasksTable)
@@ -25,7 +30,7 @@ const getTodayTasks = unstable_cache(
             )
     },
     ['tasks'],
-    { revalidate: 3600, tags: ['tasks'] }
+    { revalidate: 1, tags: ['tasks'] }
 )
 
 

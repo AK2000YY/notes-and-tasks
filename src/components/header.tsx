@@ -2,12 +2,16 @@
 
 import { Toggle } from "./toggle";
 import styles from "@/styles/style-dashboard.module.css"
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
 export function Header() {
     const [active, setActive] = useState(true);
+    const [search, setSearch] = useState('');
     const [placeholder, setPlaceHolder] = useState('');
+    const router = useRouter();
 
     useEffect(() => {
         function handlePlaceHolder() {
@@ -20,6 +24,11 @@ export function Header() {
         handlePlaceHolder()
     }, [active])
 
+    function handleNavigat(formData: FormData) {
+        if (!formData.get('search')) return
+        router.push(`/dashboard/search/${active ? 'note' : 'task'}/${formData.get('search')}`)
+    }
+
     return (
         <div className={styles.header}>
             <h1 className={styles.logo}>MAKE IT EASY</h1>
@@ -28,7 +37,8 @@ export function Header() {
                     active={active}
                     onToggle={() => setActive(!active)}
                 />
-                <form action="" className={styles.search}>
+                <form action={handleNavigat} className={styles.search}>
+                    <input type="checkbox" name="toggle" hidden checked={active} onChange={() => { }} />
                     <input type="text" name='search' placeholder={placeholder} />
                     <button type="submit"><FaSearch className={styles.icon} /></button>
                 </form>
@@ -36,3 +46,5 @@ export function Header() {
         </div>
     )
 }
+
+// href={`/dashboard/search/${active ? 'note' : 'task'}/${search.toLowerCase()}`}
