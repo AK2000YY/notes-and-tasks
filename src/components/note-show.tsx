@@ -1,7 +1,23 @@
+import { db } from '@/db/drizzle'
+import { notesTable } from '@/db/schema/notes'
 import styles from '@/styles/style-body.module.css'
-import { getNote } from "@/app/dashboard/note/update/[id]/page"
+import { eq } from 'drizzle-orm'
+import { unstable_cache } from 'next/cache'
 import Link from 'next/link'
 import { IoClose } from 'react-icons/io5'
+
+const getNote = unstable_cache(
+    async (noteId: number) => {
+        return await db
+            .select()
+            .from(notesTable)
+            .where(
+                eq(notesTable.id, noteId)
+            )
+    },
+    ['note'],
+    { revalidate: 3600, tags: ['note'] }
+)
 
 export async function NoteView({ id }: {
     id: number
