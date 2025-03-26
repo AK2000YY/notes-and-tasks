@@ -20,7 +20,7 @@ export default async function Page({ params }: {
     )
 }
 
-export const getNote = unstable_cache(
+const getNote = unstable_cache(
     async (noteId: number) => {
         return await db
             .select()
