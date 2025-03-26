@@ -8,7 +8,7 @@
     display: none;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .nav {
         display: flex;
     }
@@ -41,7 +41,7 @@
 
 
 /*  */
-@media (max-width:1480) {
+@media (max-width: 1480px) {
     .body {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -54,7 +54,7 @@
 /*  */
 
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .body {
         padding: 10px;
         display: flex;
@@ -82,14 +82,14 @@
     position: relative;
 }
 
-@media (max-width: 1480) {
+@media (max-width: 1480px) {
     .body .notes-container {
         grid-column: span 1;
         grid-row: span 1;
     }
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .body .notes-container {
         min-width: 100%;
         min-height: 100%;
@@ -110,7 +110,7 @@
     gap: 20px;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .body .notes {
         display: flex;
         flex-direction: column;
@@ -126,7 +126,7 @@
     font-family: var(--comfortaa), sans-serif;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .body .notes h1 {
         height: 100%;
         display: flex;
@@ -150,7 +150,7 @@
     align-items: center;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .body .notes-container .add-button {
         width: 45px;
         height: 45px;
@@ -183,7 +183,7 @@
     transform: rotate(-90deg);
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .body .notes .note-card:first-child .note-detail {
         display: block;
     }
@@ -247,7 +247,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     padding-top: 30px;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .note-card:first-child .detail {
         padding-top: 10px;
     }
@@ -320,7 +320,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     position: relative;
 }
 
-@media (max-width:800) {
+@media (max-width: 800px) {
 
     .note-form,
     .note-show,
@@ -342,7 +342,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     justify-content: center;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .about-us {
         font-size: 15px;
     }
@@ -371,7 +371,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     font-family: var(--comfortaa), sans-serif;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .search-list h1 {
         font-size: 20px;
     }
@@ -428,7 +428,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     font-size: 50px;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .note-show h1 {
         padding-top: 30px;
         font-size: 20px;
@@ -492,7 +492,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     cursor: pointer;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
 
     .note-form button,
     .task-form button {
@@ -583,14 +583,14 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     padding-right: 8px;
 }
 
-@media (max-width: 1480) {
+@media (max-width: 1480px) {
     .body .tasks-container {
         grid-column: 2 / 3;
         grid-area: 1 / 2;
     }
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .body .tasks-container {
         min-height: 100%;
         width: 100%;
@@ -631,7 +631,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     cursor: pointer;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .tasks-container .tasks .add-button {
         height: 60px;
     }
@@ -655,7 +655,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     font-size: 16px;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .tasks-container .tasks .task-card {
         padding: 15px 10px;
         font-size: 10px;
@@ -717,7 +717,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     cursor: pointer;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .tasks-container .tasks .task-card .icon {
         font-size: 15px;
     }
@@ -736,14 +736,14 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     font-weight: 200;
 }
 
-@media (max-width: 1480) {
+@media (max-width: 1480px) {
     .body .chart {
         grid-row: 2 / 3;
         grid-column: 1 / 2;
     }
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .body .chart {
         min-height: 50%;
     }
@@ -759,7 +759,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     align-items: center;
 }
 
-@media (max-width: 1480) {
+@media (max-width: 1480px) {
     .body .calender {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
@@ -777,7 +777,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     color: #ddd;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .body .calender {
         min-height: 70%;
     }
@@ -838,7 +838,7 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     font-weight: bold;
 }
 
-@media (max-width: 800) {
+@media (max-width: 800px) {
     .body .calender .days-name {
         margin-top: 0px;
     }
