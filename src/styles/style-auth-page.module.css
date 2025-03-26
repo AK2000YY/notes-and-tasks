@@ -123,7 +123,7 @@
     font-size: 16px;
 }
 
-@media (min-width: 0px) {
+/* @media (min-width: 0px) {
 
     input:-webkit-autofill,
     input:hover,
@@ -132,4 +132,4 @@
         transition: background-color 5000s ease-in-out 0s;
         -webkit-text-fill-color: white !important;
     }
-}
+} */
