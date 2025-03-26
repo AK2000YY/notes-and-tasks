@@ -39,6 +39,21 @@
     scroll-behavior: smooth;
 }
 
+
+/*  */
+@media (max-width:1480) {
+    .body {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 100%;
+        grid-auto-rows: 100%;
+        overflow-y: auto;
+    }
+}
+
+/*  */
+
+
 @media (max-width: 800) {
     .body {
         padding: 10px;
@@ -65,6 +80,13 @@
     grid-row: span 2;
     padding: 20px;
     position: relative;
+}
+
+@media (max-width: 1480) {
+    .body .notes-container {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
 }
 
 @media (max-width: 800) {
@@ -284,7 +306,8 @@ body .notes .note-card:nth-child(5n+2)>.icon {
 .note-form,
 .note-show,
 .task-form,
-.search-list {
+.search-list,
+.about-us {
     display: flex;
     flex-direction: column;
     row-gap: 30px;
@@ -302,10 +325,31 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     .note-form,
     .note-show,
     .task-form,
-    .search-list {
+    .search-list,
+    .about-us {
         width: 100%;
     }
 
+}
+
+.about-us {
+    color: white;
+    padding: 40px 20px 20px 20px;
+    font-family: var(--comfortaa);
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: center;
+}
+
+@media (max-width: 800) {
+    .about-us {
+        font-size: 15px;
+    }
+}
+
+.about-us ul {
+    list-style: none;
 }
 
 .search-list {
@@ -448,6 +492,15 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     cursor: pointer;
 }
 
+@media (max-width: 800) {
+
+    .note-form button,
+    .task-form button {
+        font-size: 20px;
+        padding: 15px 0;
+    }
+}
+
 .note-form button:disabled {
     cursor: not-allowed;
     opacity: 0.6;
@@ -530,9 +583,16 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     padding-right: 8px;
 }
 
+@media (max-width: 1480) {
+    .body .tasks-container {
+        grid-column: 2 / 3;
+        grid-area: 1 / 2;
+    }
+}
+
 @media (max-width: 800) {
     .body .tasks-container {
-        min-height: 90%;
+        min-height: 100%;
         width: 100%;
     }
 }
@@ -571,6 +631,12 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     cursor: pointer;
 }
 
+@media (max-width: 800) {
+    .tasks-container .tasks .add-button {
+        height: 60px;
+    }
+}
+
 .tasks-container .tasks .tasks-list {
     flex-grow: 1;
     overflow-y: auto;
@@ -586,7 +652,14 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     background-color: #2A2929;
     border-radius: var(--small-radius);
     font-family: var(--comfortaa), sans-serif;
-    font-size: 22px;
+    font-size: 16px;
+}
+
+@media (max-width: 800) {
+    .tasks-container .tasks .task-card {
+        padding: 15px 10px;
+        font-size: 10px;
+    }
 }
 
 .tasks-container .tasks .task-card form {
@@ -615,6 +688,11 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     cursor: pointer;
 }
 
+.task-form p {
+    color: red;
+    font-size: 9px;
+}
+
 .tasks-container .tasks .task-card form button:disabled {
     cursor: not-allowed;
 }
@@ -639,6 +717,12 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     cursor: pointer;
 }
 
+@media (max-width: 800) {
+    .tasks-container .tasks .task-card .icon {
+        font-size: 15px;
+    }
+}
+
 .tasks-container .tasks .task-card .icon-disable {
     display: none;
 }
@@ -650,6 +734,13 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     grid-row: span 1;
     font-family: var(--kanit), sans-serif;
     font-weight: 200;
+}
+
+@media (max-width: 1480) {
+    .body .chart {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+    }
 }
 
 @media (max-width: 800) {
@@ -666,6 +757,13 @@ body .notes .note-card:nth-child(5n+2)>.icon {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+@media (max-width: 1480) {
+    .body .calender {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
 }
 
 .body .calender .header {

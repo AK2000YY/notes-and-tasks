@@ -10,11 +10,11 @@ export function Footer() {
                 All Rigth Reserved
             </h1>
             <ul>
-                <li><Link href={'/about'}>About us</Link></li>
+                <li><Link href={'/dashboard/about-us'}>About us</Link></li>
                 <li>
                     <h5>contact me</h5>
                     <ul>
-                        <a href="https://wa.me/0988048552?text=هيا%20بنا%20نبدأ%20مشروعك" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/0988048552" target="_blank" rel="noopener noreferrer">
                             <SiWhatsapp className={styles.icon} />
                         </a>
                         <a href="https://m.me/Abdul.Karim.Kourini" target="_blank" rel="noopener noreferrer">

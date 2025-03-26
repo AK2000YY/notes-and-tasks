@@ -5,6 +5,8 @@ import styles from '../../styles/style-auth-page.module.css'
 import { GoogleLogin } from '@/components/google-login'
 import { useActionState } from 'react';
 import { createUser } from '@/lib/users/action';
+import firstImage from '@/../public/first-image.png'
+import Image from 'next/image';
 
 const initialState = {
     message: '',
@@ -19,7 +21,13 @@ export default function Page() {
 
     return (
         <div className={styles['parent']}>
-            <div className={styles['first-half']}></div>
+            <div className={styles['first-half']}>
+                <Image
+                    width={400}
+                    src={firstImage}
+                    alt=''
+                />
+            </div>
             <div className={styles['second-half']}>
                 <h1>Create an account</h1>
                 <div className={styles['discription']}>

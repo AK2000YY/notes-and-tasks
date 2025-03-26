@@ -13,7 +13,7 @@ const TaskSchema = z.object({
         .string()
         .trim()
         .min(1, { message: 'title must be at least 1 character' })
-        .max(20, { message: 'title must be at most 20 character' })
+        .max(15, { message: 'title must be at most 15 character' })
 })
 
 export async function toggleTask(prevState: any, id: number) {

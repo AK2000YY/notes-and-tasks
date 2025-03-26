@@ -18,10 +18,10 @@ export function TaskCreate() {
 
     return (
         <form action={formAction} className={styles['task-form']}>
-            <h1>Create Your Note</h1>
+            <h1>Create Your Task</h1>
             <input type="text" name="title" placeholder='title' />
             {state.title && <p>{state.title}</p>}
-            <button type="submit" disabled={pendding}>Add Note</button>
+            <button type="submit" disabled={pendding}>Add Task</button>
             {state.message && <p>{state.message}</p>}
             <IoClose
                 className={styles.close}

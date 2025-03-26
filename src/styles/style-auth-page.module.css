@@ -6,6 +6,15 @@
 
 .first-half {
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.first-half img {
+    width: 90%;
+    height: 90%;
+    border-radius: 15px;
 }
 
 .second-half {

@@ -3,6 +3,7 @@ import { db } from '@/db/drizzle'
 import { notesTable } from '@/db/schema/notes'
 import { eq } from 'drizzle-orm'
 import { unstable_cache } from 'next/cache'
+import styles from '@/styles/style-body.module.css';
 
 
 export const getNote = unstable_cache(
@@ -24,8 +25,10 @@ export default async function Page({ params }: {
     const { id } = await params
     const note = await getNote(+id)
     return (
-        <NoteUpdate
-            note={note[0]}
-        />
+        <div className={styles.overlay}>
+            <NoteUpdate
+                note={note[0]}
+            />
+        </div>
     )
 }
